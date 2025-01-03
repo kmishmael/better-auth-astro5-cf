@@ -1,0 +1,35 @@
+---
+import Welcome from '../components/Welcome.astro'
+import Layout from '../layouts/Layout.astro'
+
+if (!Astro.locals.user?.id) return Astro.redirect('/signin')
+
+const session = Astro.locals.session
+---
+
+<Layout>
+	<div>
+		{session && <Welcome initialSession={session} />}
+		<button id='signOutButton'>Sign Out</button>
+	</div>
+	<script>
+		import { authClient } from '../lib/auth-client'
+
+		document
+			.getElementById('signOutButton')
+			?.addEventListener('click', async () => {
+				await authClient.signOut()
+				window.location.href = '/signin'
+			})
+	</script>
+</Layout>
+
+<style>
+	div {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+	}
+</style>
