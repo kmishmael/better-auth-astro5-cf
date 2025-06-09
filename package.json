@@ -3,13 +3,14 @@
 	"type": "module",
 	"version": "1.0.0",
 	"scripts": {
-		"dev": "pnpm db-setup && astro dev",
-		"build": "pnpm db-setup && astro build",
-		"preview": "pnpm build && astro preview",
+		"dev": "npm db-setup && astro dev",
+		"build": "npm db-setup && astro build",
+		"preview": "npm build && astro preview",
 		"astro": "astro",
 		"db-setup": "drizzle-kit generate & drizzle-kit push"
 	},
 	"dependencies": {
+		"@astrojs/cloudflare": "^12.5.4",
 		"@astrojs/node": "^9.0.0",
 		"@libsql/client": "^0.14.0",
 		"astro": "^5.1.1",
