@@ -1,7 +1,7 @@
 ---
 import { eq } from 'drizzle-orm'
 import { db } from '../db'
-import { user } from '../db/schema'
+import { users } from '../db/schema'
 
 export interface Props {
 	initialSession: import('better-auth').Session
@@ -10,9 +10,9 @@ const { initialSession } = Astro.props
 
 const User = await db
 	.select()
-	.from(user)
-	.where(eq(user.id, initialSession.userId))
-	.get()
+	.from(users)
+	.where(eq(users.id, initialSession.userId))
+	.then((data) => data[0])
 ---
 
 <div class='container'>
