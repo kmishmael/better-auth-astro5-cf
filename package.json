@@ -3,9 +3,9 @@
 	"type": "module",
 	"version": "1.0.0",
 	"scripts": {
-		"dev": "npm db-setup && astro dev",
-		"build": "npm db-setup && astro build",
-		"preview": "npm build && astro preview",
+		"dev": "npm run db-setup && astro dev",
+		"build": "npm run db-setup && astro build",
+		"preview": "npm run build && astro preview",
 		"astro": "astro",
 		"db-setup": "drizzle-kit generate & drizzle-kit push"
 	},
@@ -16,7 +16,8 @@
 		"astro": "^5.1.1",
 		"better-auth": "^1.1.3",
 		"dotenv": "^16.4.7",
-		"drizzle-orm": "^0.38.2"
+		"drizzle-orm": "^0.38.2",
+		"postgres": "^3.4.7"
 	},
 	"devDependencies": {
 		"drizzle-kit": "^0.30.1"
